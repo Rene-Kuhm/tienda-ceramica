@@ -14,51 +14,40 @@ const categories = await getCollection('categories');
 
   <main>
     <!-- Hero Section -->
-    <section class="relative gradient-mesh min-h-[90vh] flex items-center overflow-hidden">
-      <!-- Decorative elements -->
-      <div class="absolute top-20 right-20 w-72 h-72 bg-terracotta-200/30 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 left-20 w-96 h-96 bg-earth-300/20 rounded-full blur-3xl"></div>
+    <section class="relative bg-white">
+      <div class="max-w-7xl mx-auto px-8 pt-20 pb-32">
+        <div class="text-center max-w-4xl mx-auto">
+          <!-- Main headline -->
+          <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-gray-900 mb-6">
+            Artesanía que inspira
+          </h1>
 
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-8">
-            <div class="inline-block px-4 py-2 bg-terracotta-100 rounded-full">
-              <span class="text-terracotta-700 text-sm font-medium">Artesanía con alma</span>
-            </div>
-            <h1 class="text-6xl md:text-7xl font-display font-bold leading-tight">
-              <span class="text-gradient">Arte Natural</span>
-              <br />
-              <span class="text-earth-800">para tu Hogar</span>
-            </h1>
-            <p class="text-xl text-earth-600 leading-relaxed max-w-lg">
-              Descubre piezas únicas que combinan tradición y diseño contemporáneo.
-              Cada creación cuenta una historia de pasión artesanal.
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <a
-                href="/catalogo"
-                class="group px-8 py-4 bg-gradient-to-r from-terracotta-500 to-terracotta-600 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-terracotta-500/50 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Explorar Colección
-                <span class="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-              <a
-                href="#categorias"
-                class="px-8 py-4 border-2 border-earth-400 text-earth-700 rounded-full font-semibold text-lg hover:bg-earth-100 transition-all duration-300"
-              >
-                Ver Categorías
-              </a>
-            </div>
+          <!-- Subheadline -->
+          <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            Piezas únicas de cerámica, hierro forjado y aromaterapia natural.
+            Diseñadas con pasión, creadas para durar.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <a
+              href="/catalogo"
+              class="w-full sm:w-auto px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Explorar colección
+            </a>
+            <a
+              href="#productos"
+              class="w-full sm:w-auto px-8 py-3 text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors"
+            >
+              Ver productos destacados
+            </a>
           </div>
 
-          <div class="relative hidden md:block">
-            <div class="relative w-full h-[500px]">
-              <!-- Floating cards effect -->
-              <div class="absolute top-0 right-0 w-64 h-80 glass-effect rounded-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300"></div>
-              <div class="absolute top-12 left-0 w-72 h-96 glass-effect rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 flex items-center justify-center">
-                <span class="text-8xl">🏺</span>
-              </div>
-              <div class="absolute bottom-0 right-12 w-56 h-72 glass-effect rounded-2xl transform rotate-12 hover:rotate-6 transition-transform duration-300"></div>
+          <!-- Hero Image Area -->
+          <div class="relative w-full aspect-[16/9] bg-gray-100 rounded-3xl overflow-hidden shadow-apple-xl">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-9xl opacity-20">🏺</div>
             </div>
           </div>
         </div>
@@ -66,46 +55,49 @@ const categories = await getCollection('categories');
     </section>
 
     <!-- Categories Section -->
-    <section id="categorias" class="py-24 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-display font-bold mb-4 text-earth-900">Nuestras Colecciones</h2>
-          <p class="text-lg text-earth-600 max-w-2xl mx-auto">Tres mundos artesanales que convergen en armonía</p>
+    <section id="categorias" class="py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-4">
+            Explora nuestras colecciones
+          </h2>
+          <p class="text-xl text-gray-600">
+            Cada pieza cuenta una historia
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {categories.map((category, index) => (
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {categories.map((category) => (
             <a
               href={`/catalogo/${category.data.slug}`}
-              class="group relative overflow-hidden rounded-3xl transition-all duration-500 hover:scale-105"
-              style={`animation-delay: ${index * 100}ms`}
+              class="group block"
             >
-              <!-- Background gradient -->
-              <div class="absolute inset-0 bg-gradient-to-br from-terracotta-100 via-earth-100 to-earth-200 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-
-              <!-- Content -->
-              <div class="relative p-8 h-80 flex flex-col justify-between">
-                <div class="text-7xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {category.data.slug === 'ceramica' && '🏺'}
-                  {category.data.slug === 'hierro' && '⚒️'}
-                  {category.data.slug === 'aromaterapia' && '🌿'}
+              <div class="bg-white rounded-2xl overflow-hidden shadow-apple hover:shadow-apple-lg transition-shadow duration-300">
+                <!-- Image Area -->
+                <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-7xl transform group-hover:scale-110 transition-transform duration-500">
+                      {category.data.slug === 'ceramica' && '🏺'}
+                      {category.data.slug === 'hierro' && '⚒️'}
+                      {category.data.slug === 'aromaterapia' && '🌿'}
+                    </span>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 class="text-3xl font-display font-bold mb-3 text-earth-900 group-hover:text-terracotta-700 transition-colors">
+                <!-- Content -->
+                <div class="p-6">
+                  <h3 class="text-2xl font-semibold text-gray-900 mb-2">
                     {category.data.name}
                   </h3>
-                  <p class="text-earth-600 mb-4">{category.data.description}</p>
-
-                  <div class="flex items-center text-terracotta-600 font-medium group-hover:gap-3 gap-2 transition-all">
-                    <span>Explorar</span>
+                  <p class="text-gray-600 text-sm mb-4">
+                    {category.data.description}
+                  </p>
+                  <div class="text-blue-600 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <span>Ver más</span>
                     <span class="transform group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                 </div>
               </div>
-
-              <!-- Decorative corner -->
-              <div class="absolute top-0 right-0 w-32 h-32 bg-terracotta-300/20 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-500"></div>
             </a>
           ))}
         </div>
@@ -113,53 +105,59 @@ const categories = await getCollection('categories');
     </section>
 
     <!-- Featured Products -->
-    <section class="py-24 gradient-mesh">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-display font-bold mb-4 text-earth-900">Creaciones Destacadas</h2>
-          <p class="text-lg text-earth-600 max-w-2xl mx-auto">Piezas seleccionadas que reflejan nuestra esencia</p>
+    <section id="productos" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-4">
+            Productos destacados
+          </h2>
+          <p class="text-xl text-gray-600">
+            Lo mejor de nuestra colección artesanal
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredProducts.map((product, index) => (
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredProducts.map((product) => (
             <a
               href={`/producto/${product.id}`}
-              class="group relative"
-              style={`animation-delay: ${index * 150}ms`}
+              class="group block"
             >
-              <div class="glass-effect rounded-3xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+              <div class="bg-white rounded-2xl overflow-hidden hover:shadow-apple-xl transition-shadow duration-300">
                 <!-- Product Image Area -->
-                <div class="relative aspect-square bg-gradient-to-br from-earth-100 to-terracotta-100 flex items-center justify-center overflow-hidden">
-                  <div class="absolute inset-0 bg-gradient-to-t from-earth-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span class="text-8xl transform group-hover:scale-110 transition-transform duration-500">
-                    {product.data.category === 'ceramica' && '🏺'}
-                    {product.data.category === 'hierro' && '⚒️'}
-                    {product.data.category === 'aromaterapia' && '🌿'}
-                  </span>
+                <div class="relative aspect-square bg-gray-50 overflow-hidden">
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-8xl transform group-hover:scale-105 transition-transform duration-500">
+                      {product.data.category === 'ceramica' && '🏺'}
+                      {product.data.category === 'hierro' && '⚒️'}
+                      {product.data.category === 'aromaterapia' && '🌿'}
+                    </span>
+                  </div>
 
                   <!-- Category badge -->
-                  <div class="absolute top-4 right-4 px-3 py-1 bg-white/90 rounded-full text-xs font-medium text-earth-700">
-                    {product.data.category === 'ceramica' && 'Cerámica'}
-                    {product.data.category === 'hierro' && 'Hierro'}
-                    {product.data.category === 'aromaterapia' && 'Aromaterapia'}
+                  <div class="absolute top-4 right-4 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full">
+                    <span class="text-xs font-medium text-gray-700">
+                      {product.data.category === 'ceramica' && 'Cerámica'}
+                      {product.data.category === 'hierro' && 'Hierro'}
+                      {product.data.category === 'aromaterapia' && 'Aromaterapia'}
+                    </span>
                   </div>
                 </div>
 
                 <!-- Product Info -->
-                <div class="p-6 bg-white/60 backdrop-blur-sm">
-                  <h3 class="font-display text-2xl font-bold mb-2 text-earth-900 group-hover:text-terracotta-700 transition-colors">
+                <div class="p-6">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">
                     {product.data.name}
                   </h3>
-                  <p class="text-earth-600 text-sm mb-4 line-clamp-2">
+                  <p class="text-gray-600 text-sm mb-4 line-clamp-2">
                     {product.data.description}
                   </p>
 
                   <div class="flex items-center justify-between">
-                    <span class="text-3xl font-display font-bold text-gradient">
+                    <span class="text-2xl font-semibold text-gray-900">
                       ${product.data.price.toLocaleString('es-AR')}
                     </span>
-                    <div class="flex items-center gap-2 text-terracotta-600 font-medium group-hover:gap-3 transition-all">
-                      <span class="text-sm">Ver más</span>
+                    <div class="text-blue-600 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                      <span>Comprar</span>
                       <span class="transform group-hover:translate-x-1 transition-transform">→</span>
                     </div>
                   </div>
@@ -173,10 +171,9 @@ const categories = await getCollection('categories');
         <div class="text-center mt-16">
           <a
             href="/catalogo"
-            class="inline-flex items-center gap-3 px-8 py-4 bg-earth-800 text-white rounded-full font-semibold hover:bg-earth-900 transition-all duration-300 transform hover:-translate-y-1"
+            class="inline-block px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
           >
-            <span>Ver Catálogo Completo</span>
-            <span>→</span>
+            Ver catálogo completo
           </a>
         </div>
       </div>

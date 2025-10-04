@@ -1,39 +1,21 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
-  :root {
-    --color-earth-50: #faf8f5;
-    --color-earth-100: #f0ebe3;
-    --color-earth-200: #ddd3c4;
-    --color-earth-300: #c9b8a1;
-    --color-earth-400: #b39b7d;
-    --color-earth-500: #9d7f5e;
-    --color-earth-600: #8a6b4a;
-    --color-earth-700: #6f563d;
-    --color-earth-800: #5a4532;
-    --color-earth-900: #453629;
-
-    --color-terracotta-50: #fdf6f3;
-    --color-terracotta-100: #f9e5dc;
-    --color-terracotta-200: #f4cbb9;
-    --color-terracotta-300: #eca788;
-    --color-terracotta-400: #e38360;
-    --color-terracotta-500: #d96742;
-    --color-terracotta-600: #c45135;
-    --color-terracotta-700: #a1402d;
-    --color-terracotta-800: #83362a;
-    --color-terracotta-900: #6b3027;
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply font-sans antialiased bg-earth-50 text-earth-900;
-    font-family: 'Inter', sans-serif;
+    @apply font-sans antialiased bg-white text-gray-900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.011em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    @apply font-bold;
+    font-weight: 600;
+    letter-spacing: -0.022em;
   }
 }
 
@@ -45,19 +27,38 @@
     overflow: hidden;
   }
 
-  .gradient-mesh {
-    background:
-      radial-gradient(at 27% 37%, rgba(217, 103, 66, 0.08) 0, transparent 50%),
-      radial-gradient(at 97% 21%, rgba(157, 127, 94, 0.08) 0, transparent 50%),
-      radial-gradient(at 52% 99%, rgba(236, 167, 136, 0.08) 0, transparent 50%),
-      radial-gradient(at 10% 29%, rgba(201, 184, 161, 0.08) 0, transparent 50%);
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
-  .glass-effect {
-    @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-xl;
+  /* Apple-style smooth scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-terracotta-600 to-earth-700 bg-clip-text text-transparent;
+  /* Apple-style gradient */
+  .apple-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  /* Minimal shadow elevations */
+  .shadow-apple-sm {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-apple {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-apple-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-apple-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 }

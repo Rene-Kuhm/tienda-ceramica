@@ -2,34 +2,32 @@
 import CartButton from '../../features/cart/CartButton';
 ---
 
-<header class="glass-effect sticky top-0 z-50 border-b border-earth-200/50">
-  <nav class="container mx-auto px-6 py-5">
-    <div class="flex items-center justify-between">
-      <a href="/" class="group flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-terracotta-500 to-earth-600 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-          <span class="text-white text-xl">🏺</span>
-        </div>
-        <span class="text-2xl font-display font-bold text-gradient">
-          ArteNatural
-        </span>
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+  <nav class="max-w-7xl mx-auto px-8 h-14">
+    <div class="flex items-center justify-between h-full">
+      <!-- Logo -->
+      <a href="/" class="text-2xl font-semibold tracking-tight text-gray-900 hover:text-gray-600 transition-colors">
+        ArteNatural
       </a>
 
-      <div class="hidden md:flex items-center space-x-1">
-        <a href="/catalogo" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
+      <!-- Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/catalogo" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Catálogo
         </a>
-        <a href="/catalogo/ceramica" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
+        <a href="/catalogo/ceramica" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Cerámicas
         </a>
-        <a href="/catalogo/hierro" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
+        <a href="/catalogo/hierro" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Hierro
         </a>
-        <a href="/catalogo/aromaterapia" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
+        <a href="/catalogo/aromaterapia" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Aromaterapia
         </a>
       </div>
 
-      <div class="flex items-center space-x-4">
+      <!-- Actions -->
+      <div class="flex items-center">
         <CartButton client:load />
       </div>
     </div>
