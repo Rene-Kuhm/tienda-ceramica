@@ -2,24 +2,29 @@
 import CartButton from '../../features/cart/CartButton';
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
-  <nav class="container mx-auto px-4 py-4">
+<header class="glass-effect sticky top-0 z-50 border-b border-earth-200/50">
+  <nav class="container mx-auto px-6 py-5">
     <div class="flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-emerald-600">
-        ArteNatural
+      <a href="/" class="group flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-terracotta-500 to-earth-600 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+          <span class="text-white text-xl">🏺</span>
+        </div>
+        <span class="text-2xl font-display font-bold text-gradient">
+          ArteNatural
+        </span>
       </a>
 
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="/catalogo" class="text-gray-700 hover:text-emerald-600 transition-colors">
+      <div class="hidden md:flex items-center space-x-1">
+        <a href="/catalogo" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
           Catálogo
         </a>
-        <a href="/catalogo/ceramica" class="text-gray-700 hover:text-emerald-600 transition-colors">
+        <a href="/catalogo/ceramica" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
           Cerámicas
         </a>
-        <a href="/catalogo/hierro" class="text-gray-700 hover:text-emerald-600 transition-colors">
-          Trabajos en Hierro
+        <a href="/catalogo/hierro" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
+          Hierro
         </a>
-        <a href="/catalogo/aromaterapia" class="text-gray-700 hover:text-emerald-600 transition-colors">
+        <a href="/catalogo/aromaterapia" class="px-4 py-2 rounded-lg text-earth-700 hover:bg-earth-100/60 transition-all duration-200 font-medium">
           Aromaterapia
         </a>
       </div>
