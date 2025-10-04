@@ -1,0 +1,19 @@
+{
+  "name": "Taza Artesanal de Cerámica",
+  "description": "Taza de cerámica hecha a mano con acabado esmaltado. Perfecta para café o té.",
+  "price": 3500,
+  "category": "ceramica",
+  "subcategory": "vajilla",
+  "images": [
+    "/images/placeholder.jpg"
+  ],
+  "featured": true,
+  "inStock": true,
+  "tags": ["artesanal", "vajilla", "cerámica"],
+  "dimensions": {
+    "height": 10,
+    "width": 8,
+    "depth": 8,
+    "weight": 250
+  }
+}

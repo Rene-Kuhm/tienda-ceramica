@@ -1,0 +1,19 @@
+{
+  "name": "Lámpara de Hierro Forjado",
+  "description": "Lámpara de mesa en hierro forjado con diseño vintage. Incluye cable y portalámparas.",
+  "price": 12500,
+  "category": "hierro",
+  "subcategory": "iluminacion",
+  "images": [
+    "/images/placeholder.jpg"
+  ],
+  "featured": true,
+  "inStock": true,
+  "tags": ["lámpara", "hierro", "vintage", "decoración"],
+  "dimensions": {
+    "height": 45,
+    "width": 20,
+    "depth": 20,
+    "weight": 1500
+  }
+}

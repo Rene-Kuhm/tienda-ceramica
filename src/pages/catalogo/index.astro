@@ -1,0 +1,25 @@
+---
+import Layout from '../../shared/layouts/Layout.astro';
+import Header from '../../shared/components/Header.astro';
+import Footer from '../../shared/components/Footer.astro';
+import ProductGrid from '../../features/catalog/ProductGrid.astro';
+import CategoryFilter from '../../features/catalog/CategoryFilter.astro';
+import { getCollection } from 'astro:content';
+
+const products = await getCollection('products');
+const categories = await getCollection('categories');
+---
+
+<Layout title="Catálogo - ArteNatural">
+  <Header />
+
+  <main class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Catálogo de Productos</h1>
+
+    <CategoryFilter categories={categories} />
+
+    <ProductGrid products={products} />
+  </main>
+
+  <Footer />
+</Layout>

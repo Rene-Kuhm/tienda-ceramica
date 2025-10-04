@@ -1,0 +1,28 @@
+{
+  "name": "Trabajos en Hierro",
+  "slug": "hierro",
+  "description": "Artesanía en hierro forjado y metal",
+  "image": "/images/placeholder.jpg",
+  "subcategories": [
+    {
+      "name": "Muebles",
+      "slug": "muebles",
+      "description": "Mesas, sillas y estanterías"
+    },
+    {
+      "name": "Decoración",
+      "slug": "decoracion",
+      "description": "Esculturas y objetos decorativos"
+    },
+    {
+      "name": "Iluminación",
+      "slug": "iluminacion",
+      "description": "Lámparas y candelabros"
+    },
+    {
+      "name": "Jardín",
+      "slug": "jardin",
+      "description": "Piezas para exteriores"
+    }
+  ]
+}

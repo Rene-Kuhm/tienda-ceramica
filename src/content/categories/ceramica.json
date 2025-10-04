@@ -1,0 +1,23 @@
+{
+  "name": "Cerámicas",
+  "slug": "ceramica",
+  "description": "Piezas únicas de cerámica artesanal",
+  "image": "/images/placeholder.jpg",
+  "subcategories": [
+    {
+      "name": "Vajilla",
+      "slug": "vajilla",
+      "description": "Platos, tazas y sets de mesa"
+    },
+    {
+      "name": "Decoración",
+      "slug": "decoracion",
+      "description": "Jarrones, macetas y objetos decorativos"
+    },
+    {
+      "name": "Funcional",
+      "slug": "funcional",
+      "description": "Piezas de uso diario"
+    }
+  ]
+}

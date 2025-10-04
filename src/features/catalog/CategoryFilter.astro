@@ -1,0 +1,38 @@
+---
+interface Props {
+  categories: any[];
+  currentCategory?: string;
+}
+
+const { categories, currentCategory } = Astro.props;
+---
+
+<div class="mb-8">
+  <h2 class="text-xl font-semibold mb-4">Categorías</h2>
+  <div class="flex flex-wrap gap-3">
+    <a
+      href="/catalogo"
+      class:list={[
+        "px-4 py-2 rounded-full border-2 transition-all",
+        !currentCategory
+          ? "bg-emerald-600 text-white border-emerald-600"
+          : "border-gray-300 hover:border-emerald-600"
+      ]}
+    >
+      Todas
+    </a>
+    {categories.map((category) => (
+      <a
+        href={`/catalogo/${category.data.slug}`}
+        class:list={[
+          "px-4 py-2 rounded-full border-2 transition-all",
+          currentCategory === category.data.slug
+            ? "bg-emerald-600 text-white border-emerald-600"
+            : "border-gray-300 hover:border-emerald-600"
+        ]}
+      >
+        {category.data.name}
+      </a>
+    ))}
+  </div>
+</div>

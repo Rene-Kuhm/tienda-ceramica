@@ -1,0 +1,28 @@
+{
+  "name": "Aromaterapia",
+  "slug": "aromaterapia",
+  "description": "Productos naturales para el bienestar",
+  "image": "/images/placeholder.jpg",
+  "subcategories": [
+    {
+      "name": "Aceites Esenciales",
+      "slug": "aceites-esenciales",
+      "description": "Aceites puros y mezclas terapéuticas"
+    },
+    {
+      "name": "Difusores",
+      "slug": "difusores",
+      "description": "Difusores cerámicos y eléctricos"
+    },
+    {
+      "name": "Velas",
+      "slug": "velas",
+      "description": "Velas aromáticas artesanales"
+    },
+    {
+      "name": "Sahumerios",
+      "slug": "sahumerios",
+      "description": "Inciensos y sahumerios naturales"
+    }
+  ]
+}

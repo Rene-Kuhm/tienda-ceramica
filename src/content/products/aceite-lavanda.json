@@ -1,0 +1,16 @@
+{
+  "name": "Aceite Esencial de Lavanda",
+  "description": "Aceite esencial puro de lavanda 100% natural. Propiedades relajantes y aromáticas.",
+  "price": 2800,
+  "category": "aromaterapia",
+  "subcategory": "aceites-esenciales",
+  "images": [
+    "/images/placeholder.jpg"
+  ],
+  "featured": true,
+  "inStock": true,
+  "tags": ["aceite esencial", "lavanda", "relajante", "natural"],
+  "dimensions": {
+    "weight": 30
+  }
+}

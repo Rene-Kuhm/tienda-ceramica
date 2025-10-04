@@ -1,0 +1,43 @@
+---
+import Layout from '../../shared/layouts/Layout.astro';
+import Header from '../../shared/components/Header.astro';
+import Footer from '../../shared/components/Footer.astro';
+import ProductGrid from '../../features/catalog/ProductGrid.astro';
+import CategoryFilter from '../../features/catalog/CategoryFilter.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+
+  return categories.map(category => ({
+    params: { category: category.data.slug },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props;
+const allProducts = await getCollection('products');
+const products = allProducts.filter(p => p.data.category === category.data.slug);
+const categories = await getCollection('categories');
+---
+
+<Layout title={`${category.data.name} - ArteNatural`}>
+  <Header />
+
+  <main class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{category.data.name}</h1>
+    <p class="text-gray-600 mb-8">{category.data.description}</p>
+
+    <CategoryFilter categories={categories} currentCategory={category.data.slug} />
+
+    {products.length > 0 ? (
+      <ProductGrid products={products} />
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-gray-500 text-lg">No hay productos disponibles en esta categoría.</p>
+      </div>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

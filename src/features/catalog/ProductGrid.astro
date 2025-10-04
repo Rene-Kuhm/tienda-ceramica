@@ -1,0 +1,36 @@
+---
+interface Props {
+  products: any[];
+}
+
+const { products } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  {products.map((product) => (
+    <a
+      href={`/producto/${product.id}`}
+      class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden"
+    >
+      <div class="aspect-square overflow-hidden bg-gray-100">
+        <img
+          src={product.data.images[0]?.src || '/placeholder.jpg'}
+          alt={product.data.name}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div class="p-4">
+        <h3 class="font-semibold text-lg mb-2 line-clamp-2">{product.data.name}</h3>
+        <p class="text-sm text-gray-600 mb-3 line-clamp-2">{product.data.description}</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xl font-bold text-emerald-600">
+            ${product.data.price.toLocaleString('es-AR')}
+          </span>
+          {!product.data.inStock && (
+            <span class="text-xs text-red-500 font-medium">Sin stock</span>
+          )}
+        </div>
+      </div>
+    </a>
+  ))}
+</div>

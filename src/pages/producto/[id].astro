@@ -1,0 +1,123 @@
+---
+import Layout from '../../shared/layouts/Layout.astro';
+import Header from '../../shared/components/Header.astro';
+import Footer from '../../shared/components/Footer.astro';
+import AddToCartButton from '../../features/product-detail/AddToCartButton';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+
+  return products.map(product => ({
+    params: { id: product.id },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const categories = await getCollection('categories');
+const category = categories.find(c => c.data.slug === product.data.category);
+---
+
+<Layout title={`${product.data.name} - ArteNatural`} description={product.data.description}>
+  <Header />
+
+  <main class="container mx-auto px-4 py-12">
+    <nav class="text-sm text-gray-600 mb-8">
+      <a href="/" class="hover:text-emerald-600">Inicio</a>
+      <span class="mx-2">/</span>
+      <a href={`/catalogo/${product.data.category}`} class="hover:text-emerald-600">
+        {category?.data.name}
+      </a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-900">{product.data.name}</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Product Image -->
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
+        <span class="text-9xl opacity-20">
+          {product.data.category === 'ceramica' && '🏺'}
+          {product.data.category === 'hierro' && '⚒️'}
+          {product.data.category === 'aromaterapia' && '🌿'}
+        </span>
+      </div>
+
+      <!-- Product Info -->
+      <div class="flex flex-col">
+        <h1 class="text-4xl font-bold mb-4">{product.data.name}</h1>
+
+        <div class="flex items-center gap-2 mb-6">
+          <span class="text-3xl font-bold text-emerald-600">
+            ${product.data.price.toLocaleString('es-AR')}
+          </span>
+          {!product.data.inStock && (
+            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">
+              Sin stock
+            </span>
+          )}
+        </div>
+
+        <p class="text-gray-700 mb-8 text-lg">{product.data.description}</p>
+
+        {product.data.inStock && (
+          <AddToCartButton
+            client:load
+            product={{
+              id: product.id,
+              name: product.data.name,
+              price: product.data.price,
+              image: product.data.images[0] || '/placeholder.jpg'
+            }}
+          />
+        )}
+
+        {product.data.dimensions && (
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <h3 class="font-semibold mb-4">Dimensiones y Detalles</h3>
+            <dl class="space-y-2 text-sm">
+              {product.data.dimensions.height && (
+                <div class="flex justify-between">
+                  <dt class="text-gray-600">Altura:</dt>
+                  <dd class="font-medium">{product.data.dimensions.height} cm</dd>
+                </div>
+              )}
+              {product.data.dimensions.width && (
+                <div class="flex justify-between">
+                  <dt class="text-gray-600">Ancho:</dt>
+                  <dd class="font-medium">{product.data.dimensions.width} cm</dd>
+                </div>
+              )}
+              {product.data.dimensions.depth && (
+                <div class="flex justify-between">
+                  <dt class="text-gray-600">Profundidad:</dt>
+                  <dd class="font-medium">{product.data.dimensions.depth} cm</dd>
+                </div>
+              )}
+              {product.data.dimensions.weight && (
+                <div class="flex justify-between">
+                  <dt class="text-gray-600">Peso:</dt>
+                  <dd class="font-medium">{product.data.dimensions.weight} g</dd>
+                </div>
+              )}
+            </dl>
+          </div>
+        )}
+
+        {product.data.tags && product.data.tags.length > 0 && (
+          <div class="mt-6">
+            <div class="flex flex-wrap gap-2">
+              {product.data.tags.map(tag => (
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
